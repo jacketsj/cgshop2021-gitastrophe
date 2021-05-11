@@ -48,3 +48,6 @@ add_executable(cbs_improve_run ${SRC}/cbs_improve_run.cpp)
 target_link_libraries(convert PRIVATE nlohmann_json::nlohmann_json stdc++fs)
 target_link_libraries(convert_back PRIVATE nlohmann_json::nlohmann_json stdc++fs)
 target_link_libraries(convert_back_back PRIVATE nlohmann_json::nlohmann_json stdc++fs)
+
+target_link_libraries(vis X11)
+target_link_libraries(gif_vis X11)

@@ -37,6 +37,14 @@ The next $t$ lines each contain $n$ integers, each with the direction that the $
 - 3: South
 - 4: West
 
+## The Output Directory
+
+Whenever a solver tries to save an output file
+without a specified custom location,
+it will attempt to save the file to both of `output/distance` and `output/makespan`.
+If there is already another output file there, and it is better according to the corresponding metric,
+the solver will _not_ overwrite that file.
+
 ## Using the visualizer
 Like a lot of the other executables, the visualizer can be run in a few different ways.
 Make sure to always run everything from inside the build directory.  
@@ -128,7 +136,7 @@ This solver runs a two-phase process. For the first phase:
 - At the end of this phase, each robot has an unobstructed path to the goal.
 
 In the second phase:
-- An A * is run from each robot to their goal, treating all the other robots' (currently computed) paths as obstacles.
+- An A-star is run from each robot to their goal, treating all the other robots' (currently computed) paths as obstacles.
 - The order in which the robots go to the goal has two modes: (1) in order of distance from the centre of the grid (not guaranteed to work, but produces smaller makespan and distance). (2) in order of a precomputed BFS tree from the corner of the grid, filling in the leaves of the tree first.
 
 ### Greedy Improver
@@ -152,6 +160,6 @@ Supports the following operations:
 - Delete the tail of the path P of a robot in O(|P| * log T)
 - Find the best path P of a robot in O((S + |P|) * log T) where S is the number of nodes searched to find best path
 
-## Graph implementation 
+## (Dense) Graph Implementation 
 
 Not sparse implementation of the graph. For grid G and makespan T, takes space O(|G| * T). Supports mostly the same thing as the sparse graph without the log factor except uses arrays of size O(|G| * T) to find best path.

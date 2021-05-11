@@ -1,0 +1,26 @@
+what about the following possibly shitty algo:
+- fix some target makespan d
+- for each (s_i, t_i) pair, generate random paths of makespan d
+- use a fast SAT solver to find a set of non-intersecting paths
+we ought to document these ideas somewhere
+lol
+the probability that any two paths actually intersect at the same time is low when d is large
+paul.liuToday at 8:34 PM
+for example, the most restrictive case is when two robots lie right on top of each other, and have their destinations right on top of each other (this cant actually happen in the input, but lets pretend it does):
+
+(1, 2) x x x x x x x x x (1', 2')
+|-------- length d ------------|
+
+lets further suppose this is 1D and robots can only stay still or move right.
+
+ofc if we sample paths of makespan d, they will collide with each other right away.
+if we sample with makespan 2d, then an approximation for the probability they collide on any particular coordinate x at time t is (t choose x) / 2^t which is really small.
+i guess this sorta analysis might break down in the dense setting
+
+
+in practice I suppose you could even do something like the following (which might work for dense inputs as well):
+run the algo above with really big makespan
+choose a solution satisfying the largest number of disjoint paths (doesn't have to be all)
+take a few steps
+and then rerun with smaller makespan
+rinse and repeat

@@ -1,0 +1,10 @@
+and then the ML solution is just a classification problem of which of the 4 directions to go
+training data can be generated from random instances solved with your optimal flow
+
+I see, so the input is the problem, output is the next step each robot should take
+(there's 5 directions robots can stay still)
+
+yeah the problem on a local scale, like a 5x5 square around the robot
+that would be the feature
+plus current location & goal location or something like that
+ive seen it work in fluid sim settings

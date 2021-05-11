@@ -1,0 +1,4 @@
+actually i think i can do a constraint solver encoding
+i don't know any good solvers for multicommodity flow so that might be better
+it's very different encodings for distance and makespan though
+makespan is more likely to perform ok

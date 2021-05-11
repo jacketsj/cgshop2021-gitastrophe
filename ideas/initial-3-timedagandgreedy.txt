@@ -1,5 +1,0 @@
-can we try the following naive algo first for makespan:
-- imagine a DAG with nodes representing (x, y, t) := robot at x, y at time t.
-- greedily move robots in order of shortest distance. order these paths p1, p2, ... pk.
-- if p_i conflicts with some path p_j (j < i) at node (x, y, t), simply make the robot on path p_j wait one time unit before going to (x, y, t) (instead arriving at time (x, y, t+1))
-the intuition is that the earlier paths have more makespan room to give, since they got to their destination faster anyway, so we can make them wait a few steps in order to accomodate the longer paths

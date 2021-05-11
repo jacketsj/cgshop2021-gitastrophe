@@ -1,6 +1,0 @@
-btw tiny instances can probably be solved with A* with a really big state right
-
-what heuristic would you use
-sum of l1 distances would be a start
-
-you could also do some hacks like restricting the branching factor, using ML to predict a heuristic distance, etc

@@ -1,2 +1,0 @@
-i mean, there's probably pretrained ML solutions out there for this already
-it's the rts pathfinding problem

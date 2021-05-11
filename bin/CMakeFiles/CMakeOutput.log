@@ -1,0 +1,112 @@
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2e4c8/fast && /usr/bin/make  -f CMakeFiles/cmTC_2e4c8.dir/build.make CMakeFiles/cmTC_2e4c8.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2e4c8.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2e4c8.dir/CheckIncludeFile.c.o -c /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_2e4c8
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e4c8.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_2e4c8.dir/CheckIncludeFile.c.o -o cmTC_2e4c8 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bb380/fast && /usr/bin/make  -f CMakeFiles/cmTC_bb380.dir/build.make CMakeFiles/cmTC_bb380.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bb380.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_bb380.dir/CheckFunctionExists.c.o -c /home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bb380
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb380.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_bb380.dir/CheckFunctionExists.c.o -o cmTC_bb380  -lpthread 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cf6a9/fast && /usr/bin/make  -f CMakeFiles/cmTC_cf6a9.dir/build.make CMakeFiles/cmTC_cf6a9.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cf6a9.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_cf6a9.dir/CheckFunctionExists.c.o -c /home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cf6a9
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cf6a9.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay CMakeFiles/cmTC_cf6a9.dir/CheckFunctionExists.c.o -o cmTC_cf6a9  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_43600/fast && /usr/bin/make  -f CMakeFiles/cmTC_43600.dir/build.make CMakeFiles/cmTC_43600.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_43600.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -o CMakeFiles/cmTC_43600.dir/CheckFunctionExists.c.o -c /home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_43600
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43600.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname CMakeFiles/cmTC_43600.dir/CheckFunctionExists.c.o -o cmTC_43600 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_388d8/fast && /usr/bin/make  -f CMakeFiles/cmTC_388d8.dir/build.make CMakeFiles/cmTC_388d8.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_388d8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_388d8.dir/CheckFunctionExists.c.o -c /home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_388d8
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_388d8.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_388d8.dir/CheckFunctionExists.c.o -o cmTC_388d8 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a356d/fast && /usr/bin/make  -f CMakeFiles/cmTC_a356d.dir/build.make CMakeFiles/cmTC_a356d.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a356d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -o CMakeFiles/cmTC_a356d.dir/CheckFunctionExists.c.o -c /home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a356d
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a356d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove CMakeFiles/cmTC_a356d.dir/CheckFunctionExists.c.o -o cmTC_a356d 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5fd7b/fast && /usr/bin/make  -f CMakeFiles/cmTC_5fd7b.dir/build.make CMakeFiles/cmTC_5fd7b.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5fd7b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -o CMakeFiles/cmTC_5fd7b.dir/CheckFunctionExists.c.o -c /home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5fd7b
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fd7b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_5fd7b.dir/CheckFunctionExists.c.o -o cmTC_5fd7b 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_692bd/fast && /usr/bin/make  -f CMakeFiles/cmTC_692bd.dir/build.make CMakeFiles/cmTC_692bd.dir/build
+make[1]: Entering directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_692bd.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_692bd.dir/CheckFunctionExists.c.o -c /home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_692bd
+/home/zhengdw/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_692bd.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_692bd.dir/CheckFunctionExists.c.o -o cmTC_692bd  -lICE 
+make[1]: Leaving directory '/home/zhengdw/git/cgshop2021-gitastrophe/bin/CMakeFiles/CMakeTmp'
+
+
+

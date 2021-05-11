@@ -1,4 +1,4 @@
-# cgshop2021
+# CG:SHOP 2021 - Gitastrophe
 
 ## Compiling/Building
 

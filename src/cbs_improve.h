@@ -471,6 +471,8 @@ bool run(instance& ins, int sec = 1) {
 	int found_count = 0;
 	random_shuffle(all_robots.begin(), all_robots.end());
 	auto robot_iter = all_robots.begin();
+	cout << "(before) Instance " << ins.name << " makespan: " << score(ins, true)
+			 << " distance: " << score(ins, false) << endl;
 	while (clock() - start_time < sec * CLOCKS_PER_SEC) {
 		// pick num_to_opt random robots
 		auto next_iter =
@@ -478,6 +480,7 @@ bool run(instance& ins, int sec = 1) {
 		vector<size_t> sub_robots(robot_iter, next_iter);
 		// vector<size_t> sub_robots(all_robots.begin(),
 		// 													all_robots.begin() + num_to_opt);
+		// cout << "About to run search with " << num_to_opt << " robots" << endl;
 		if (!search(ins, sub_robots, sub_sec)) {
 			--num_to_opt;
 			cerr << "Decreasing num to opt, now=" << num_to_opt << endl;
@@ -501,6 +504,8 @@ bool run(instance& ins, int sec = 1) {
 	}
 	sparse_graph::sparse_graph sg(ins);
 	sg.update_instance();
+	cout << "(after) Instance " << ins.name << " makespan: " << score(ins, true)
+			 << " distance: " << score(ins, false) << endl;
 	return improvement(ins, false) || improvement(ins, true);
 }
 } // namespace cbs_improve

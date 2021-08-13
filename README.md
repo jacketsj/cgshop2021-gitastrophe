@@ -2,6 +2,9 @@
 
 ## Compiling/Building
 
+Dependencies:
+```cmake```
+
 Enter the `build` directory and run `build.sh`.
 Visualizer build might fail due to dependencies.
 If so, you may need to run:

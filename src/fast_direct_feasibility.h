@@ -452,21 +452,21 @@ int EXTRAS = 2; // factor of extra grid positions (increasing slows down
 pair<instance, instance> split_instance(const instance& ins) {
 	pair<instance, instance> ret = pair<instance, instance>(ins, ins);
 
-	const int six = 1;
+	const int gap = 1;
 	// first need to find bounds
-	int my = min_y(ins) - six; // this is the starting point of the bottom 'grid'
-	int mx = min_x(ins) - six; // this is the starting point of the left 'grid'
-	int My = max_y(ins) + six; // this is the starting point of the top 'grid'
-	int Mx = max_x(ins) + six; // this is the starting point of the right 'grid'
-	// rect_filler top(pt(mx + six, My), pt(2, 2), Mx - six, true);
-	// rect_filler bottom(pt(mx + six, my), pt(2, -2), Mx - six, true);
-	// rect_filler left(pt(mx, my + six), pt(-2, 2), My - six, false);
-	// rect_filler right(pt(Mx, my + six), pt(2, 2), My - six, false);
+	int my = min_y(ins) - gap; // this is the starting point of the bottom 'grid'
+	int mx = min_x(ins) - gap; // this is the starting point of the left 'grid'
+	int My = max_y(ins) + gap; // this is the starting point of the top 'grid'
+	int Mx = max_x(ins) + gap; // this is the starting point of the right 'grid'
+	// rect_filler top(pt(mx + gap, My), pt(2, 2), Mx - gap, true);
+	// rect_filler bottom(pt(mx + gap, my), pt(2, -2), Mx - gap, true);
+	// rect_filler left(pt(mx, my + gap), pt(-2, 2), My - gap, false);
+	// rect_filler right(pt(Mx, my + gap), pt(2, 2), My - gap, false);
 	vector<filler_in_use> rects = {
-			filler_in_use(pt(mx + six, My), pt(2, 2), Mx - six, true),
-			filler_in_use(pt(mx + six, my), pt(2, -2), Mx - six, true),
-			filler_in_use(pt(mx, my + six), pt(-2, 2), My - six, false),
-			filler_in_use(pt(Mx, my + six), pt(2, 2), My - six, false)};
+			filler_in_use(pt(mx + gap, My), pt(2, 2), Mx - gap, true),
+			filler_in_use(pt(mx + gap, my), pt(2, -2), Mx - gap, true),
+			filler_in_use(pt(mx, my + gap), pt(-2, 2), My - gap, false),
+			filler_in_use(pt(Mx, my + gap), pt(2, 2), My - gap, false)};
 	// vector<std::reference_wrapper<rect_filler>>
 	//		rects; //({top, bottom, left, right});
 	// rects.emplace_back(top);

@@ -38,6 +38,8 @@ int main(int argc, char* argv[]) {
 			ins.read(filename);
 			ins.read_out(makespan);
 		}
+		cout << "About to run cbs improver on " << ins.name << " for " << seconds
+				 << "s." << endl;
 		if (cbs_improve::run(ins, seconds)) {
 			cout << "CBS IMPROVER RUN SUCCESSFUL" << endl;
 			ins.write();

@@ -3,14 +3,20 @@
 ## Compiling/Building
 
 We rely on `cmake` to build and run our code. If you don't have `cmake` you can get it with:
-```sudo apt-get install cmake```
+```
+sudo apt-get install cmake
+```
 
 Enter the `build` directory and run `build.sh`.
-```cd build; ./build.sh```
+```
+cd build; ./build.sh
+```
 
 Visualizer build might fail due to dependencies.
 If so, you may need to run:
-```sudo apt-get install libglfw3-dev libgles2-mesa-dev```
+```
+sudo apt-get install libglfw3-dev libgles2-mesa-dev
+```
 
 If you don't need to use the visualizer, you can just run `make optimize`.
 
@@ -21,19 +27,29 @@ If you don't need to use the visualizer, you can just run `make optimize`.
 Navigate to the `build` directory if you aren't already there.
 
 To see a full details of how to run the code, you can see the usage statment by running:
-```./optimize --help```
+```
+./optimize --help
+```
 
 To run on a json file and to output a json file under the CG:SHOP format called `output.json`, you can run a command like:
-```./optimize ../raw_input/small_019_20x20_90_329.instance.json -o output.json```
+```
+./optimize ../raw_input/small_019_20x20_90_329.instance.json -o output.json
+```
 
 If you wish to run on a file used in the CG:SHOP 2021 competition for distance, you can simply run:
-```./optimize small_019_20x20_90_329```
+```
+./optimize small_019_20x20_90_329
+```
 
 If you wish to run optimizer for makespan, and let it run for 10 minutes (600 seconds), you can run:
-```./optimize small_019_20x20_90_329 600 -m```
+```
+./optimize small_019_20x20_90_329 600 -m
+```
 
 If you want to manually set k and R (see paper for more information on these parameters) you can do so with:
-```./optimize small_019_20x20_90_329 -k 5 -R 10```
+```
+./optimize small_019_20x20_90_329 -k 5 -R 10
+```
 
 Results can be found in the `output/distance` folder and can be visualized with our visualizer.
 

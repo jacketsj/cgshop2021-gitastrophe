@@ -20,7 +20,6 @@ find_package(X11)
 
 add_executable(vis ${SRC}/vis/vis.cpp)
 add_executable(gif_vis ${SRC}/vis/gif_vis.cpp)
-add_executable(try_save ${SRC}/try_save.cpp)
 add_executable(optimize ${SRC}/optimize.cpp)
 
 target_link_libraries(optimize PRIVATE nlohmann_json::nlohmann_json stdc++fs)

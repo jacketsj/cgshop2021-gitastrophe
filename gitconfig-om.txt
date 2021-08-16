@@ -1,3 +1,0 @@
-[merge "out-merge-tool"]
-  name = A custom merge driver to take the better of .out files
-  driver = ./merge-tool-out.sh %O %A %B %P

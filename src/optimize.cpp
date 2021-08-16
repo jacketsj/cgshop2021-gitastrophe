@@ -87,11 +87,11 @@ int main(int argc, char* argv[]) {
   bool outjson = false;
   std::string json_outfile;
   std::string raw_filename;
-  if (argc <= 2) {
+  if (argc < 2) {
     print_usage(argv[0]);
     exit(0);
   }
-  if (argc > 2) {
+  else {
     raw_filename = argv[1];
     for (int i = 2; i < argc; ++i) {
       if (std::string(argv[i]) == std::string("-k")) {

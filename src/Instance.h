@@ -9,6 +9,7 @@
 #include <set>
 #include <tuple>
 #include <vector>
+#include <filesystem>
 
 using namespace std;
 
@@ -19,19 +20,34 @@ const string INPATH = "../input/";
 const string EXT = ".in";
 const string OUTEXT = ".out";
 
+string get_ext(string s) {
+	size_t last_slash = s.find_last_of("/");
+	if (last_slash != string::npos)
+		s = s.substr(last_slash + 1);
+
+	size_t last_dot = s.find_last_of("."); // find last extention
+	if (last_dot == string::npos)
+		return s;
+	return s.substr(last_dot+1, s.size());
+}
+
 string remove_ext(string s) {
 	size_t last_slash = s.find_last_of("/");
 	if (last_slash != string::npos)
 		s = s.substr(last_slash + 1);
 
-	size_t last_dot = s.find_last_of(".");
+	size_t last_dot = s.find_first_of("."); // strip all extentions (this is important)
 	if (last_dot == string::npos)
 		return s;
 	return s.substr(0, last_dot);
 }
 
+string out_directory(bool makespan) {
+  return OUTPATH + (makespan ? MSPATH : DISTPATH);
+}
+
 string out_file_full(string name, bool makespan) {
-	return OUTPATH + (makespan ? MSPATH : DISTPATH) + name + OUTEXT;
+	return out_directory(makespan) + name + OUTEXT;
 }
 
 const int INF = 0x3f3f3f3f;
@@ -153,6 +169,20 @@ struct instance {
 				moves[t][sub_robots[i]] = 0;
 	}
 
+  bool check_exists(string filename) {
+		filename = remove_ext(filename);
+		string filepath = INPATH + filename + EXT;
+    return filesystem::exists(filepath);
+  }
+
+  bool check_out_exists(string filename, bool makespan) {
+    if (!filesystem::exists(out_directory(makespan))) {
+      filesystem::create_directory(out_directory(makespan));
+      return false;
+    }
+    return filesystem::exists(out_file_full(filename, makespan));
+  }
+
 	void read(string filename) { // clear instance and read new instance
 		clear();
 		filename = remove_ext(filename);
@@ -198,6 +228,9 @@ struct instance {
 	string out_file(bool makespan) { return out_file_full(name, makespan); }
 
 	void read_out(bool makespan) { // read moves and time
+    if (!filesystem::exists(out_file(makespan))) {
+      cerr << "ERROR: Did not find .out file" <<endl;
+    }
 		ifstream in(out_file(makespan));
 
 		// dump extra info, and get time
@@ -287,8 +320,6 @@ struct instance {
 	}
 
 	void write() {
-		// TODO: add code that overwrites only new solution is better
-		// (and have two output directories)
 		if (!verify(*this)) {
 			cerr << "Verification failed! Not writing file." << endl;
 			return;
@@ -296,9 +327,7 @@ struct instance {
 		vector<bool> vals = {false, true};
 		for (bool makespan : vals)
 			if (improvement(*this, makespan)) {
-				/*
-				cout << "writing improvement in "
-						 << (makespan ? "makespan" : "distance") << "!" << endl; */
+        cerr << "Improvement found for " << name << " on " << (makespan? "makespan": "distance") << endl;
 				complete_write(makespan);
 			}
 	}
@@ -448,14 +477,9 @@ double squared_makespan_sum(instance& ins) {
 
 bool improvement(instance& ins, bool makespan) {
 	instance dupe = ins; // copy most info from ins
-	// dupe.read(ins.name);
-	// cout << "out_file_full=" << out_file_full(ins.name, makespan) << endl;
 	dupe.read_out(makespan);
 	int old_score = score(dupe, makespan);
 	int new_score = score(ins, makespan);
-	/*
-	cout << "makespan=" << (makespan ? "true" : "false")
-			 << ", old score=" << old_score << ", new score=" << new_score << endl;*/
 
 	if (old_score == new_score) {
 		// Break ties by average makespan
@@ -468,17 +492,12 @@ bool improvement(instance& ins, bool makespan) {
 
 bool improvement_custom(instance& ins, string full_filename, bool makespan) {
 	instance dupe; // copy most info from ins
-	// dupe.read(ins.name);
-	// cout << "out_file_full=" << out_file_full(ins.name, makespan) << endl;
 	dupe.read_custom(full_filename);
 	if (ins.n != dupe.n)
 		return false;
 
 	int old_score = score(dupe, makespan);
 	int new_score = score(ins, makespan);
-	/*
-	cout << "makespan=" << (makespan ? "true" : "false")
-			 << ", old score=" << old_score << ", new score=" << new_score << endl;*/
 
 	if (old_score == new_score) {
 		// Break ties by average makespan

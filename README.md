@@ -5,14 +5,12 @@ This repository contains the source code of team gitastrophe in
 
 For more information, see our paper on arxiv.
 
-### The paper
-
 <a id="1">[1]</a> 
 Paul Liu, Jack Spalding-Jamieson, Brandon Zhang, Da-Wei Zheng. 
 Coordinated Motion Planning Through Randomized k-Opt. CoRR abs/2103.15062 (2021).
 <a href="https://arxiv.org/abs/2103.15062">https://arxiv.org/abs/2103.15062</a>
 
-## Compiling/Building
+## Compiling/building
 
 We rely on `cmake` to build and run our code. If you don't have `cmake` you can get it with:
 ```
@@ -65,7 +63,7 @@ you can do so with:
 ./optimize small_019_20x20_90_329 -k 5 -R 10
 ```
 
-Results can be found in the `output/distance` folder and can be visualized with our visualizer.
+Results can be found in the `output/distance` (or `output/makespan`) folder and can be visualized with our visualizer.
 
 ### Optimizer details
 
@@ -111,14 +109,14 @@ The map of controls is as follows:
 - DOWN: Halve the speed of playback (down to 1x)
 - L: Toggle goal lines
 
-### GIF Output
+### GIF output
 A related executable to the visualizer will create GIFs of solutions.
 `gif_vis` has all the same command-line options as `vis`, but instead of opening a window
 and allowing the user to control playback,
 it redirects a raw video stream to stdout.  
 The script `build/rgif.sh` redirects this raw video stream into ffmpeg and produces an mp4 file.
 
-## Misc. Information
+## Custom Format Descriptions
 
 ### Instance format description:
 

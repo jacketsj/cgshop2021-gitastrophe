@@ -1,7 +1,7 @@
-# CG:SHOP 2021 - Gitastrophe
+# CG:SHOP 2021 - gitastrophe
 
-This repository contains the source code of Team Gitastrophe in [CG:SHOP 2021,
-the SoCG 2020 Competition](https://cgshop.ibr.cs.tu-bs.de/competition/cg-shop-2021/). 
+This repository contains the source code of team gitastrophe in 
+[CG:SHOP 2021](https://cgshop.ibr.cs.tu-bs.de/competition/cg-shop-2021/). 
 
 For more information, see our paper on arxiv.
 

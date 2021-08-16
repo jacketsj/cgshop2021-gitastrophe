@@ -148,7 +148,8 @@ int main(int argc, char* argv[]) {
     ins.write();
   }
 
-  std::cerr << "Beginning optimization for " << seconds << " seconds, hang tight." << endl;
+  std::cerr << "Beginning "<< (makespan? "makespan": "distance") 
+    << " optimization for " << seconds << " seconds, hang tight." << endl;
   if (makespan) {
     if (k_perm_solver::run(ins, seconds, true, k, R)) {
       std::cerr << "Makespan improver run completed on " << filename << std::endl;

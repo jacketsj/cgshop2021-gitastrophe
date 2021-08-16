@@ -2,48 +2,49 @@
 
 ## Compiling/Building
 
-Dependencies:
-```cmake```
+We rely on `cmake` to build and run our code. If you don't have `cmake` you can get it with:
+```sudo apt-get install cmake```
 
 Enter the `build` directory and run `build.sh`.
+```cd build; ./build.sh```
+
 Visualizer build might fail due to dependencies.
 If so, you may need to run:
 ```sudo apt-get install libglfw3-dev libgles2-mesa-dev```
 
-## Instance format description:
+If you don't need to use the visualizer, you can just run `make optimize`.
 
-filename is name of instance
+## Using the optimizer 
 
-$n$ is the number of robots
+### How to run
 
-$m$ is the number of obstacles
+Navigate to the `build` directory if you aren't already there.
 
-The next $n$ lines contains the locations of the robots.
+To see a full details of how to run the code, you can see the usage statment by running:
+```./optimize --help```
 
-The next $n$ lines contains the targets of the robots.
+To run on a json file and to output a json file under the CG:SHOP format called `output.json`, you can run a command like:
+```./optimize ../raw_input/small_019_20x20_90_329.instance.json -o output.json```
 
-The next $m$ lines contains the obstacle coordinates.
+If you wish to run on a file used in the CG:SHOP 2021 competition for distance, you can simply run:
+```./optimize small_019_20x20_90_329```
 
-## Output format description:
+If you wish to run optimizer for makespan, and let it run for 10 minutes (600 seconds), you can run:
+```./optimize small_019_20x20_90_329 600 -m```
 
-filename is name of instance
+If you want to manually set k and R (see paper for more information on these parameters) you can do so with:
+```./optimize small_019_20x20_90_329 -k 5 -R 10```
 
-$n$ is the number of robots
+Results can be found in the `output/distance` folder and can be visualized with our visualizer.
 
-$t$ is the time/makespan of the solution
+### Optimizer details
 
-The next $t$ lines each contain $n$ integers, each with the direction that the $i$th robot moves in encoded as follows:
-
-- 0: Stay still
-- 1: North
-- 2: East
-- 3: South
-- 4: West
-
-## The Output Directory
+Whenever `optimize` is run, and successfully finds a solution,
+it will attempt to write that solution.
+Before writing, a solution is checked for validity,
+and also checked that it is an improvement over the current minimum distance and makespan solutions.
 
 Whenever a solver tries to save an output file
-without a specified custom location,
 it will attempt to save the file to both of `output/distance` and `output/makespan`.
 If there is already another output file there, and it is better according to the corresponding metric,
 the solver will _not_ overwrite that file.
@@ -87,82 +88,34 @@ and allowing the user to control playback,
 it redirects a raw video stream to stdout.  
 The script `build/rgif.sh` redirects this raw video stream into ffmpeg and produces an mp4 file.
 
-## The different solvers
+## Misc. Information
 
-### How to run
+### Instance format description:
 
-All solvers can be run similarly to the visualizer,
-although most don't have any command-line parameters,
-and some of them will only read `.in` files.
-Additionally,
-they can take more than one file (unlike the visualizer),
-and will process the inputs in sequence.
-This allows for commands like this:
-```
-ls ../input/small_* | ./test_run
-```
+filename is name of instance
 
-Whenever a solver is run, and successfully finds a solution,
-it will attempt to write that solution.
-Before writing, a solution is checked for validity,
-and also checked that it is an improvement over the current minimum distance and makespan solutions.
+$n$ is the number of robots
 
-### Greedy Optimization with Random
+$m$ is the number of obstacles
 
-This (non-optimal, non-complete) solver is really bad, but it works ok on some of the smallest `small_free` instances.
-It greedily tries to move each of the agents/robots in the direction of their target at each timestep,
-and moves in a random direction when it can't. They also occasionally move in a random direction anyway.
+The next $n$ lines contains the locations of the robots.
 
-### Conflict-Based Search (CBS)
+The next $n$ lines contains the targets of the robots.
 
-This implements the well-known MAPF algorithm,
-with a small amount of additional code to support geometric constraints.
-It also uses (mostly) disjoint children, a common slight optimization to CBS.
-Unfortunately, it seems to be hopeless on anything but the smallest of the small instances using only the makespan metric.
-Using the distance metric it can barely even solve any of the test cases.
+The next $m$ lines contains the obstacle coordinates.
 
-### Physics Solver
+### Output format description:
 
-This solver runs a physics simulation with the following properties:
-- All the robots are positive charges.
-- All obstacles are stationary positive charges.
-- Each robot has a spring attaching it to its target.
-  The spring takes a (mostly) valid path to the target, and is also charged.
-- On each frame, the path of the spring is re-calculated with a BFS.
-  Whenever a robot is encountered in the BFS, there is a small probability that it will pass through the robot.
+filename is name of instance
 
-### Feasibility Solver
-This solver runs a two-phase process. For the first phase:
-- All the robots are positive charges.
-- There is a large positive charge in the centre of the grid.
-- For O(sqrt(n)) steps, we run this physics simulation to spread the robots out.
-- At the end of this phase, each robot has an unobstructed path to the goal.
+$n$ is the number of robots
 
-In the second phase:
-- An A-star is run from each robot to their goal, treating all the other robots' (currently computed) paths as obstacles.
-- The order in which the robots go to the goal has two modes: (1) in order of distance from the centre of the grid (not guaranteed to work, but produces smaller makespan and distance). (2) in order of a precomputed BFS tree from the corner of the grid, filling in the leaves of the tree first.
+$t$ is the time/makespan of the solution
 
-### Greedy Improver
+The next $t$ lines each contain $n$ integers, each with the direction that the $i$th robot moves in encoded as follows:
 
-Greedy improver currently goes through the robots in order from 1 to n and finds the optimal path from start to target for that robot. Currently converges quickly to local optimum for small instances.
-Should add: 
-- find strictly shorter paths
-- use randomized order of robots
-- use order of robots sorted by distance travelled.
-
-
-
-## Sparse Graph Implementation
-
-The sparse graph is currently stored as a set of moves through time for each cell of the grid G.
-Let D denote the total distance of an instance, and T the makespan.
-Memory usage: O(D + |G|) 
-Supports the following operations:
-- Check if there is a robot at position p at time t in O(log T)
-- Check if moving from p_1 to p_2 is valid at time t in O(log T)
-- Delete the tail of the path P of a robot in O(|P| * log T)
-- Find the best path P of a robot in O((S + |P|) * log T) where S is the number of nodes searched to find best path
-
-## (Dense) Graph Implementation 
-
-Not sparse implementation of the graph. For grid G and makespan T, takes space O(|G| * T). Supports mostly the same thing as the sparse graph without the log factor except uses arrays of size O(|G| * T) to find best path.
+- 0: Stay still
+- 1: North
+- 2: East
+- 3: South
+- 4: West

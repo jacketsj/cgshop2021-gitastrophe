@@ -1,5 +1,17 @@
 # CG:SHOP 2021 - Gitastrophe
 
+This repository contains the source code of Team Gitastrophe in [CG:SHOP 2021,
+the SoCG 2020 Competition](https://cgshop.ibr.cs.tu-bs.de/competition/cg-shop-2021/). 
+
+For more information, see our paper on arxiv.
+
+### The paper
+
+<a id="1">[1]</a> 
+Paul Liu, Jack Spalding-Jamieson, Brandon Zhang, Da-Wei Zheng. 
+Coordinated Motion Planning Through Randomized k-Opt. CoRR abs/2103.15062 (2021).
+<a href="https://arxiv.org/abs/2103.15062">https://arxiv.org/abs/2103.15062</a>
+
 ## Compiling/Building
 
 We rely on `cmake` to build and run our code. If you don't have `cmake` you can get it with:
@@ -46,7 +58,9 @@ If you wish to run optimizer for makespan, and let it run for 10 minutes (600 se
 ./optimize small_019_20x20_90_329 600 -m
 ```
 
-If you want to manually set k and R (see paper for more information on these parameters) you can do so with:
+If you want to manually set k and R 
+(see our paper[[1]](#1) for more information on these parameters)
+you can do so with:
 ```
 ./optimize small_019_20x20_90_329 -k 5 -R 10
 ```
@@ -135,3 +149,4 @@ The next $t$ lines each contain $n$ integers, each with the direction that the $
 - 2: East
 - 3: South
 - 4: West
+

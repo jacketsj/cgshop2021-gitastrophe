@@ -229,7 +229,7 @@ struct instance {
 
 	void read_out(bool makespan) { // read moves and time
     if (!filesystem::exists(out_file(makespan))) {
-      cerr << "ERROR: Did not find .out file" <<endl;
+      cerr << "Warning: Did not find existing .out file" <<endl;
     }
 		ifstream in(out_file(makespan));
 

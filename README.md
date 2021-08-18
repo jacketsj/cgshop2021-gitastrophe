@@ -126,25 +126,25 @@ The script `build/rgif.sh` redirects this raw video stream into ffmpeg and produ
 
 filename is name of instance
 
-$n$ is the number of robots
+**n** is the number of robots
 
-$m$ is the number of obstacles
+**m** is the number of obstacles
 
-The next $n$ lines contains the locations of the robots.
+The next **n** lines contains the locations of the robots.
 
-The next $n$ lines contains the targets of the robots.
+The next **n** lines contains the targets of the robots.
 
-The next $m$ lines contains the obstacle coordinates.
+The next **m** lines contains the obstacle coordinates.
 
 ### Output format description:
 
 filename is name of instance
 
-$n$ is the number of robots
+**n** is the number of robots
 
-$t$ is the time/makespan of the solution
+**t** is the time/makespan of the solution
 
-The next $t$ lines each contain $n$ integers, each with the direction that the $i$th robot moves in encoded as follows:
+The next **t** lines each contain **n** integers, each with the direction that the **i**th robot moves in encoded as follows:
 
 - 0: Stay still
 - 1: North

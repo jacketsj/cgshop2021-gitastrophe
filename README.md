@@ -83,8 +83,8 @@ If there is already another output file there, and it is better according to the
 the solver will _not_ overwrite that file.
 
 ## Using the visualizer
-Like a lot of the other executables, the visualizer can be run in a few different ways.
-Make sure to always run everything from inside the build directory.  
+The visualizer can be run in a few different ways.
+Make sure to always run from inside the build directory.  
 
 ### Command-line options
 The default:

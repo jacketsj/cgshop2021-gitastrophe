@@ -3,9 +3,13 @@
 This repository contains the source code of team gitastrophe in 
 [CG:SHOP 2021](https://cgshop.ibr.cs.tu-bs.de/competition/cg-shop-2021/). 
 
-For more information, see our paper on arxiv.
+For more information, see our paper in the SoCG proceedings or on arxiv.
 
 <a id="1">[1]</a> 
+Paul Liu, Jack Spalding-Jamieson, Brandon Zhang, Da-Wei Zheng. 
+Coordinated Motion Planning Through Randomized k-Opt (CG Challenge). SoCG 2021: 64:1-64:8.
+<a href="https://drops.dagstuhl.de/opus/volltexte/2021/13863">https://drops.dagstuhl.de/opus/volltexte/2021/13863</a>
+<a id="2">[2]</a> 
 Paul Liu, Jack Spalding-Jamieson, Brandon Zhang, Da-Wei Zheng. 
 Coordinated Motion Planning Through Randomized k-Opt. CoRR abs/2103.15062 (2021).
 <a href="https://arxiv.org/abs/2103.15062">https://arxiv.org/abs/2103.15062</a>
